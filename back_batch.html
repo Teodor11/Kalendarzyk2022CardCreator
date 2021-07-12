@@ -1,0 +1,53 @@
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalendarzyk 2022 &ndash; card creator back batch</title>
+    <link rel="icon" href="./favicon2.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link href="back_style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <h1 class="to_hide">Kalendarzyk 2022 &ndash; card creator back batch</h1>
+    <div class="to_hide">
+
+
+        Ścieżka do folderu z obrazkami:<br />
+        <input type="text" id="batch_image_path" /><br /><br />
+
+        Dane:<br />
+        <textarea id="batch_data"></textarea>
+        <br />
+
+        <button class="hover_sweep_to_right" id="batch_continue">
+            Kontynuuj <i class="fas fa-angle-double-right"></i>
+        </button>
+
+        <button class="hover_sweep_to_right" id="batch_hide">
+            Zapisz/ukryj <i class="fas fa-angle-double-right"></i>
+        </button>
+
+        <hr />
+
+    </div>
+
+
+
+
+    <div id="batch_result"> </div>
+
+
+
+    <script src="https://kit.fontawesome.com/0b933f18b4.js" crossorigin="anonymous"></script>
+    <script src="back_batch_script.js"></script>
+</body>
+
+</html>
