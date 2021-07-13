@@ -96,7 +96,7 @@ function clearCard(card_elements: string[]): void
     });
 
     document.getElementById("card_preview").innerHTML = "";
-    document.getElementById("card_result").classList.add("hidden");
+    document.getElementById("card_result").classList.add("invisible");
 }
 
 
