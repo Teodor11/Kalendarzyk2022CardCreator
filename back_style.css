@@ -1,7 +1,11 @@
 body {
   background-color: #96d4ff;
+  box-sizing: border-box;
   font-family: "Open Sans", "Noto Sans JP", sans-serif;
-  margin: 1em;
+  margin: 0;
+  min-height: 100vh;
+  padding: 1em;
+  position: relative;
 }
 
 .hidden, .first_hidden {
@@ -10,6 +14,16 @@ body {
 
 .invisible {
   visibility: hidden;
+}
+
+#margin_page_bottom {
+  height: 5em;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 2em);
 }
 
 h2 {
@@ -153,9 +167,9 @@ body.batch_saving {
 }
 
 #card_content_preview_grid {
-  column-gap: 5em;
+  column-gap: 2vw;
   display: grid;
-  grid-template-columns: max-content 450px max-content;
+  grid-template-columns: max-content 400px max-content;
   grid-template-rows: repeat(3, max-content);
 }
 
@@ -357,7 +371,7 @@ button {
   padding: 0.55em;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 50em;
+  width: min(30vw, 50em);
 }
 
 #result_copy_button {
