@@ -120,6 +120,7 @@ function formatText(text_in) {
     }
     t = t.replace(/</g, "&lt;");
     t = t.replace(/>/g, "&gt;");
+    t = t.replace(/\&nbsp\;/, "\u00a0");
     t = t.replace(/\\\*/gm, "&ast;");
     t = t.replace(/\&/gm, "&amp;");
     t = t.replace(/\[standardFont\]/g, "<span class='standardFont'>");
@@ -237,12 +238,18 @@ function getCard(card_type, card_elements) {
     getResultLine(card_type, fields);
 }
 function getResultLine(card_type, fields) {
+    var day = document.getElementById("card_content_day").value;
     var result = "";
     //0 - card index
     result += "";
     result += "\u0009";
     //1 - day
-    result += "day";
+    if (result) {
+        result += day;
+    }
+    else {
+        result += "\u00a0";
+    }
     result += "\u0009";
     //2 - type
     result += card_type.toString();

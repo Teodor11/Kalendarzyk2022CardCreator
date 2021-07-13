@@ -205,6 +205,8 @@ function formatText(text_in: string): string
     t = t.replace(/</g, "&lt;");
     t = t.replace(/>/g, "&gt;");
 
+    t = t.replace(/\&nbsp\;/, "\u00a0");
+
     t = t.replace(/\\\*/gm, "&ast;");
     t = t.replace(/\&/gm, "&amp;");
 
@@ -407,6 +409,8 @@ function getCard(card_type: number, card_elements: string[])
 function getResultLine(card_type: number, fields: CardFields): void
 {
 
+    const day = (document.getElementById("card_content_day") as HTMLInputElement).value;
+
     let result = "";
 
     //0 - card index
@@ -414,7 +418,14 @@ function getResultLine(card_type: number, fields: CardFields): void
     result += "\u0009"
 
     //1 - day
-    result += "day";
+    if (result)
+    {
+        result += day;
+    }
+    else
+    {
+        result += "\u00a0";
+    }
     result += "\u0009"
 
     //2 - type
