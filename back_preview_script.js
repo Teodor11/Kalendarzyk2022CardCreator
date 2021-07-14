@@ -121,8 +121,8 @@ function formatText(text_in) {
     t = t.replace(/</g, "&lt;");
     t = t.replace(/>/g, "&gt;");
     t = t.replace(/\&nbsp\;/, "\u00a0");
-    t = t.replace(/\\\*/gm, "&ast;");
     t = t.replace(/\&/gm, "&amp;");
+    t = t.replace(/\\\*/gm, "\&ast;");
     t = t.replace(/\[standardFont\]/g, "<span class='standardFont'>");
     t = t.replace(/\[\/standardFont\]/g, "</span>");
     var arrayCode = [];
