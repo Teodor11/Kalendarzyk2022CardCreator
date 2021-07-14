@@ -75,13 +75,13 @@ function formatText(text_in) {
     if (t[0] == "\"" && t[t.length - 1] == "\"") {
         t = t.substring(1, t.length - 1);
     }
-    t = t.replace(/</g, "&lt;");
-    t = t.replace(/>/g, "&gt;");
-    t = t.replace(/\&nbsp\;/, "\u00a0");
+    t = t.replace(/</gm, "&lt;");
+    t = t.replace(/>/gm, "&gt;");
+    t = t.replace(/\&nbsp\;/gm, "\u00a0");
     t = t.replace(/\&/gm, "&amp;");
     t = t.replace(/\\\*/gm, "\&ast;");
-    t = t.replace(/\[standardFont\]/g, "<span class='standardFont'>");
-    t = t.replace(/\[\/standardFont\]/g, "</span>");
+    t = t.replace(/\[standardFont\]/gm, "<span class='standardFont'>");
+    t = t.replace(/\[\/standardFont\]/gm, "</span>");
     var arrayCode = [];
     var arrayResult = [];
     var regExp = /([^\\]|^)\*.*?[^\\]\*/gm;
