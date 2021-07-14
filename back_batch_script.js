@@ -75,10 +75,12 @@ function formatText(text_in) {
     if (t[0] == "\"" && t[t.length - 1] == "\"") {
         t = t.substring(1, t.length - 1);
     }
+    t = t.replace(/\&/gm, "&amp;");
+    //t = t.replace(/[<|\&amp\;lt\;]/gm, "&lt;");
+    //t = t.replace(/[>|\&amp\;gt\;]/gm, "&gt;");
+    t = t.replace(/\&amp\;nbsp\;/gm, "&nbsp;");
     t = t.replace(/</gm, "&lt;");
     t = t.replace(/>/gm, "&gt;");
-    t = t.replace(/\&nbsp\;/gm, "\u00a0");
-    t = t.replace(/\&/gm, "&amp;");
     t = t.replace(/\\\*/gm, "\&ast;");
     t = t.replace(/\[standardFont\]/gm, "<span class='standardFont'>");
     t = t.replace(/\[\/standardFont\]/gm, "</span>");
