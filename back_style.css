@@ -105,6 +105,8 @@ body.batch_saving {
   text-align: center;
 }
 .card_type_option input, .card_content_single_option input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
   appearance: none;
   background-color: #4DBFFF;
   border-radius: 5px;
