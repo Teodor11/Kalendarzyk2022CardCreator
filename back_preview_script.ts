@@ -425,7 +425,7 @@ function getResultLine(card_type: number, fields: CardFields): void
     // result += "\u0009"
 
     //1 - day
-    if (result)
+    if (day)
     {
         result += day;
     }
@@ -433,6 +433,7 @@ function getResultLine(card_type: number, fields: CardFields): void
     {
         result += "\u00a0";
     }
+
     result += "\u0009"
 
     //2 - type

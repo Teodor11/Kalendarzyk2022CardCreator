@@ -248,7 +248,7 @@ function getResultLine(card_type, fields) {
     //result += ""
     // result += "\u0009"
     //1 - day
-    if (result) {
+    if (day) {
         result += day;
     }
     else {
