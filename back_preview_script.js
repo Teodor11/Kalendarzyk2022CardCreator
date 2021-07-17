@@ -242,9 +242,11 @@ function getCard(card_type, card_elements) {
 function getResultLine(card_type, fields) {
     var day = document.getElementById("card_content_day").value;
     var result = "";
+    // u00a0 - non-breaking space
+    // u0009 - tab
     //0 - card index
-    result += "";
-    result += "\u0009";
+    //result += ""
+    // result += "\u0009"
     //1 - day
     if (result) {
         result += day;

@@ -415,9 +415,14 @@ function getResultLine(card_type: number, fields: CardFields): void
 
     let result = "";
 
+    // u00a0 - non-breaking space
+    // u0009 - tab
+
+
+
     //0 - card index
-    result += ""
-    result += "\u0009"
+    //result += ""
+    // result += "\u0009"
 
     //1 - day
     if (result)
