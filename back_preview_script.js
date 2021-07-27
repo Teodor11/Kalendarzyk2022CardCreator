@@ -131,7 +131,6 @@ function formatText(text_in) {
     var arrayResult = [];
     var regExp = /([^\\]|^)\*.*?[^\\]\*/gm;
     arrayCode = t.match(regExp);
-    //console.log("array code 1: ", arrayCode);
     if (arrayCode) {
         arrayCode.forEach(function (el, index) {
             if (arrayCode[index].substring(0, 1) !== "*") {
@@ -153,6 +152,19 @@ function formatText(text_in) {
     t = t.split(/\\n/).join("<br/>");
     t = t.split(/\n/).join("<br/>");
     t = t.replace(/---/gm, "<hr/>");
+    return t;
+}
+function formatTextResult(text_in) {
+    if (!text_in) {
+        return "";
+    }
+    var t = text_in;
+    t = t.split(/<span class='bold'>/gm).join("*");
+    t = t.split(/<\/span>/gm).join("*");
+    t = t.split(/<br\/>/gm).join("\\n");
+    t = t.split(/<hr\/>/gm).join("---");
+    t = t.replace(/</gm, "&lt;");
+    t = t.replace(/>/gm, "&gt;");
     return t;
 }
 function copyResult(e) {
@@ -260,7 +272,7 @@ function getResultLine(card_type, fields) {
     //3-7 - card fields
     (["title", "text", "text2", "image", "image2"]).forEach(function (el) {
         result += "\u0009";
-        result += JSON.stringify(fields[el]);
+        result += formatTextResult(JSON.stringify(fields[el]));
     });
     var result_line_el = document.getElementById("card_result_line");
     result_line_el.textContent = result;

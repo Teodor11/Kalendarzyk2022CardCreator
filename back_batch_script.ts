@@ -67,19 +67,14 @@ function getResult(): void
 
         for (let j = 0; j < elements.length; j++)
         {
-            const el = data[elements[j]];   //e.g. data.text
+            const el = data[i][elements[j]];   //e.g. data.text
 
-            console.info(el);
+            el.content = formatText(el.content);
 
-            for (const key in el)
-            {
-                el[key] = formatText(el.content);
-                console.log("key/el/j:", key, el, j);
-            }
+            if (!([null, "left", "center", "right", "justify"].includes(el.text_align))) { el.text_align = null; }
+            if (!([null, "tiny", "small", "normal", "large"].includes(el.text_size))) { el.text_size = null; }
+            if (!([null, "tiny", "small", "normal", "large"].includes(el.image_size))) { el.image_size = null; }
         }
-
-
-
 
     });
 
@@ -174,6 +169,10 @@ function formatText(text_in: string): string
 
     let t = text_in;
 
+    t = t.replace(/\&lt\;/gm, "<");
+    t = t.replace(/\&gt\;/gm, ">");
+
+    t = t.replace(/\&/gm, "&amp;");
     t = t.replace(/</gm, "&lt;");
     t = t.replace(/>/gm, "&gt;");
 
@@ -185,16 +184,10 @@ function formatText(text_in: string): string
 
     t = t.replace(/---/gm, "<hr/>")
 
-    // t = t.replace(/\[boldStart\]/gm, "<span class='bold'>");
-    //t = t.replace(/\[boldEnd\]/gm, "</span>");
-
-
     if (t[0] == `"` && t[t.length - 1] == `"`)
     {
         t = t.substring(1, t.length - 1)
     }
-
-    t = t.replace(/\&/gm, "&amp;");
 
 
     t = t.replace(/\&amp\;nbsp\;/gm, "&nbsp;");

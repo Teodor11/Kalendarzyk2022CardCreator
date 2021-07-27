@@ -223,7 +223,6 @@ function formatText(text_in: string): string
 
     arrayCode = t.match(regExp);
 
-    //console.log("array code 1: ", arrayCode);
 
     if (arrayCode)
     {
@@ -261,6 +260,25 @@ function formatText(text_in: string): string
 
     t = t.replace(/---/gm, "<hr/>")
 
+
+    return t;
+}
+
+
+function formatTextResult(text_in: string): string
+{
+    if (!text_in) { return ""; }
+
+    let t = text_in;
+
+    t = t.split(/<span class='bold'>/gm).join("*");
+    t = t.split(/<\/span>/gm).join("*");
+
+    t = t.split(/<br\/>/gm).join("\\n");
+    t = t.split(/<hr\/>/gm).join("---");
+
+    t = t.replace(/</gm, "&lt;");
+    t = t.replace(/>/gm, "&gt;");
 
     return t;
 }
@@ -443,12 +461,8 @@ function getResultLine(card_type: number, fields: CardFields): void
     (["title", "text", "text2", "image", "image2"]).forEach(el =>
     {
         result += "\u0009";
-        result += JSON.stringify(fields[el]);
+        result += formatTextResult(JSON.stringify(fields[el]));
     });
-
-
-
-
 
 
     const result_line_el = document.getElementById("card_result_line");

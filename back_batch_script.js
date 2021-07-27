@@ -25,11 +25,16 @@ function getResult() {
         data[i].image2 = JSON.parse(el_array[7]);
         var elements = ["title", "text", "text2", "image", "image2"];
         for (var j = 0; j < elements.length; j++) {
-            var el_1 = data[elements[j]]; //e.g. data.text
-            console.info(el_1);
-            for (var key in el_1) {
-                el_1[key] = formatText(el_1.content);
-                console.log("key/el/j:", key, el_1, j);
+            var el_1 = data[i][elements[j]]; //e.g. data.text
+            el_1.content = formatText(el_1.content);
+            if (!([null, "left", "center", "right", "justify"].includes(el_1.text_align))) {
+                el_1.text_align = null;
+            }
+            if (!([null, "tiny", "small", "normal", "large"].includes(el_1.text_size))) {
+                el_1.text_size = null;
+            }
+            if (!([null, "tiny", "small", "normal", "large"].includes(el_1.image_size))) {
+                el_1.image_size = null;
             }
         }
     });
@@ -80,18 +85,18 @@ function formatText(text_in) {
         return "";
     }
     var t = text_in;
+    t = t.replace(/\&lt\;/gm, "<");
+    t = t.replace(/\&gt\;/gm, ">");
+    t = t.replace(/\&/gm, "&amp;");
     t = t.replace(/</gm, "&lt;");
     t = t.replace(/>/gm, "&gt;");
     t = t.replace(/\\;/gm, ";");
     t = t.split(/\\n/).join("<br/>");
     t = t.split(/\n/).join("<br/>");
     t = t.replace(/---/gm, "<hr/>");
-    // t = t.replace(/\[boldStart\]/gm, "<span class='bold'>");
-    //t = t.replace(/\[boldEnd\]/gm, "</span>");
     if (t[0] == "\"" && t[t.length - 1] == "\"") {
         t = t.substring(1, t.length - 1);
     }
-    t = t.replace(/\&/gm, "&amp;");
     t = t.replace(/\&amp\;nbsp\;/gm, "&nbsp;");
     t = t.replace(/\\\*/gm, "\&ast;");
     t = t.replace(/\[standardFont\]/gm, "<span class='standardFont'>");
