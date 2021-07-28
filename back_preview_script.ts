@@ -258,6 +258,8 @@ function formatText(text_in: string): string
     t = t.split(/\\n/).join("<br/>");
     t = t.split(/\n/).join("<br/>");
 
+    t = t.split(/\\t/gm).join("&Tab;");
+
     t = t.replace(/---/gm, "<hr/>")
 
 
@@ -279,6 +281,8 @@ function formatTextResult(text_in: string): string
 
     t = t.replace(/</gm, "&lt;");
     t = t.replace(/>/gm, "&gt;");
+
+    t = t.replace(/\&Tab\;/gm, "\\t");
 
     return t;
 }

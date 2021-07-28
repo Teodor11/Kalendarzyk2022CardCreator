@@ -151,6 +151,7 @@ function formatText(text_in) {
     t = t.replace(/\\;/gm, ";");
     t = t.split(/\\n/).join("<br/>");
     t = t.split(/\n/).join("<br/>");
+    t = t.split(/\\t/gm).join("&Tab;");
     t = t.replace(/---/gm, "<hr/>");
     return t;
 }
@@ -165,6 +166,7 @@ function formatTextResult(text_in) {
     t = t.split(/<hr\/>/gm).join("---");
     t = t.replace(/</gm, "&lt;");
     t = t.replace(/>/gm, "&gt;");
+    t = t.replace(/\&Tab\;/gm, "\\t");
     return t;
 }
 function copyResult(e) {
