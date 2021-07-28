@@ -273,7 +273,6 @@ button {
   margin: 1em 0;
   overflow: hidden;
   padding: 0.5em;
-  white-space: pre-wrap;
   width: 400px;
 }
 .card_back.type1, .card_back.type2, .card_back.type3, .card_back.type6, .card_back.type7, .card_back.type8 {
