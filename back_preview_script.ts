@@ -406,7 +406,7 @@ function getCard(card_type: number, card_elements: string[])
 
             if (fields.text.content)
             {
-                code += `<span class="card_back_text ${fields.text.text_align} ${fields.text.image_size}"> ${fields.text.content}</span> `
+                code += `<span class="card_back_text ${fields.text.text_align} ${fields.text.text_size}"> ${fields.text.content}</span> `
             }
 
             break;

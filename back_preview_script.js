@@ -240,7 +240,7 @@ function getCard(card_type, card_elements) {
         case 8:
             code += "<div class=\"card_back type8\">\n                    <span class=\"card_back_title type8 " + fields.title.text_align + " " + fields.title.text_size + "\">" + fields.title.content + "</span>\n                    <img src=\"" + path + fields.image.content + "\" alt=\"" + fields.image.content + "\" class=\"card_back_image type8 " + fields.image.image_size + "\" />";
             if (fields.text.content) {
-                code += "<span class=\"card_back_text " + fields.text.text_align + " " + fields.text.image_size + "\"> " + fields.text.content + "</span> ";
+                code += "<span class=\"card_back_text " + fields.text.text_align + " " + fields.text.text_size + "\"> " + fields.text.content + "</span> ";
             }
             break;
     }
