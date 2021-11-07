@@ -142,7 +142,7 @@ function createCards(data: BackSingleDay[]): void
 
                 if (el.text.content)
                 {
-                    code += `<span class="card_back_text ${el.text.text_align} ${el.text.image_size}"> ${el.text.content}</span> `
+                    code += `<span class="card_back_text ${el.text.text_align} ${el.text.text_size}"> ${el.text.content}</span> `
                 }
 
                 break;
@@ -189,7 +189,7 @@ function formatText(text_in: string): string
 
     t = t.replace(/\&amp\;nbsp\;/gm, "&nbsp;");
 
-    t = t.replace(/\&amp\;ast\;/gm, "&ast;");
+    t = t.replace(/\&amp;ast;/gm, "&ast;");
     t = t.replace(/\\\*/gm, "&ast;");
 
     t = t.replace(/\[standardFont\]/gm, "<span class='standardFont'>");

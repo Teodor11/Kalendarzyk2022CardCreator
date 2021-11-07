@@ -72,7 +72,7 @@ function createCards(data) {
             case 8:
                 code += "<div class=\"card_back type8\">\n                    <span class=\"card_back_title type8 " + el.title.text_align + " " + el.title.text_size + "\">" + el.title.content + "</span>\n                    <img src=\"" + path + el.image.content + "\" alt=\"" + el.image.content + "\" class=\"card_back_image type8 " + el.image.image_size + "\" />";
                 if (el.text.content) {
-                    code += "<span class=\"card_back_text " + el.text.text_align + " " + el.text.image_size + "\"> " + el.text.content + "</span> ";
+                    code += "<span class=\"card_back_text " + el.text.text_align + " " + el.text.text_size + "\"> " + el.text.content + "</span> ";
                 }
                 break;
         }
@@ -98,7 +98,7 @@ function formatText(text_in) {
         t = t.substring(1, t.length - 1);
     }
     t = t.replace(/\&amp\;nbsp\;/gm, "&nbsp;");
-    t = t.replace(/\&amp\;ast\;/gm, "&ast;");
+    t = t.replace(/\&amp;ast;/gm, "&ast;");
     t = t.replace(/\\\*/gm, "&ast;");
     t = t.replace(/\[standardFont\]/gm, "<span class='standardFont'>");
     t = t.replace(/\[\/standardFont\]/gm, "</span>");
