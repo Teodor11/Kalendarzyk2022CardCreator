@@ -10,10 +10,10 @@ type CardContentElement = {
 };
 
 
-type SingleDay = {
+type BackSingleDay = {
     all: Array<string>,
 
-    index: number,
+    index: number | string,
     day: string,
     type: number,
 
@@ -42,18 +42,18 @@ function getResult(): void
 
     first_data = null;
 
-    let data: SingleDay[] = [];
+    let data: BackSingleDay[] = [];
 
     data_array.forEach((el, i) =>
     {
         const el_array: string[] = el.split(/\t/gm)
 
-        data[i] = {} as SingleDay;
+        data[i] = {} as BackSingleDay;
 
         console.log(el_array);
 
         data[i].all = el_array;
-        data[i].index = parseInt(el_array[0]);
+        data[i].index = el_array[0];
         data[i].day = el_array[1];
         data[i].type = parseInt(el_array[2]);
 
@@ -83,7 +83,7 @@ function getResult(): void
 }
 
 
-function createCards(data: SingleDay[]): void
+function createCards(data: BackSingleDay[]): void
 {
 
     const result_el = document.getElementById("batch_result");
@@ -155,9 +155,6 @@ function createCards(data: SingleDay[]): void
 
     });
 
-
-
-
 }
 
 
@@ -192,7 +189,8 @@ function formatText(text_in: string): string
 
     t = t.replace(/\&amp\;nbsp\;/gm, "&nbsp;");
 
-    t = t.replace(/\\\*/gm, "\&ast;");
+    t = t.replace(/\&amp\;ast\;/gm, "&ast;");
+    t = t.replace(/\\\*/gm, "&ast;");
 
     t = t.replace(/\[standardFont\]/gm, "<span class='standardFont'>");
     t = t.replace(/\[\/standardFont\]/gm, "</span>");
@@ -241,7 +239,7 @@ function formatText(text_in: string): string
 
 
 
-function hideElements()
+function hideElements(): void
 {
 
     const elements_to_hide = document.getElementsByClassName("to_hide");
@@ -252,10 +250,6 @@ function hideElements()
             elements_to_hide[i].classList.add("hidden");
         }
     }
-
-
-
-
 
 
     document.body.classList.add("batch_saving");
@@ -274,21 +268,4 @@ function hideElements()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-(function () { init(); })()
+(function () { init(); })();

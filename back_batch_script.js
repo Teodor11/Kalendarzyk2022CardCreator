@@ -15,7 +15,7 @@ function getResult() {
         data[i] = {};
         console.log(el_array);
         data[i].all = el_array;
-        data[i].index = parseInt(el_array[0]);
+        data[i].index = el_array[0];
         data[i].day = el_array[1];
         data[i].type = parseInt(el_array[2]);
         data[i].title = JSON.parse(el_array[3]);
@@ -98,7 +98,8 @@ function formatText(text_in) {
         t = t.substring(1, t.length - 1);
     }
     t = t.replace(/\&amp\;nbsp\;/gm, "&nbsp;");
-    t = t.replace(/\\\*/gm, "\&ast;");
+    t = t.replace(/\&amp\;ast\;/gm, "&ast;");
+    t = t.replace(/\\\*/gm, "&ast;");
     t = t.replace(/\[standardFont\]/gm, "<span class='standardFont'>");
     t = t.replace(/\[\/standardFont\]/gm, "</span>");
     var arrayCode = [];
