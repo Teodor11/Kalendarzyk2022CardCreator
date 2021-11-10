@@ -67,7 +67,7 @@ body.batch_saving {
 
 .card_back.batch_saving {
   border: none;
-  filter: opacity(0.93);
+  filter: opacity(0.92);
   margin: 0;
   padding: 0;
   page-break-inside: avoid;
