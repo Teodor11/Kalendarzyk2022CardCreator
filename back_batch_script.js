@@ -133,7 +133,7 @@ function hideElements() {
         }
     }
     document.body.classList.add("batch_saving");
-    document.body.style.opacity = "0.92";
+    document.body.style.opacity = "0.9";
     document.getElementById("batch_result").classList.add("batch_saving");
     var cards = document.getElementsByClassName("card_back");
     if (cards) {
