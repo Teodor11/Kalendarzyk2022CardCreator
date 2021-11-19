@@ -253,6 +253,7 @@ function hideElements(): void
 
 
     document.body.classList.add("batch_saving");
+    document.body.style.opacity = "0.92";
     document.getElementById("batch_result").classList.add("batch_saving");
 
     const cards = document.getElementsByClassName("card_back");
