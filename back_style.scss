@@ -78,7 +78,7 @@ body.batch_saving
 .card_back.batch_saving 
 {
     border: none;
-    filter: opacity(0.92);
+    opacity: 0.92;
     margin: 0;
     padding: 0.1em;
     page-break-inside: avoid;
