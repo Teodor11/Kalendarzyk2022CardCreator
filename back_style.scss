@@ -71,14 +71,15 @@ h2 {
 body.batch_saving 
 {
     background-color: white;
-    width: 430px;
+    opacity: 0.92;
     margin-top: 0;
+    width: 430px;
 }
 
 .card_back.batch_saving 
 {
     border: none;
-    opacity: 0.92;
+    //opacity: 0.92;
     margin: 0;
     padding: 0.1em;
     page-break-inside: avoid;
